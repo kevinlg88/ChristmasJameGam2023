@@ -5,8 +5,12 @@ using UnityEngine;
 
 public enum ResourceType
 {
+    None,
     Wheel,
     Gift, 
-    Coal
+    Coal,
+    Wood,
+    Ship,
+    Any,
 }
 
