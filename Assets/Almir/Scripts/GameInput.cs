@@ -17,18 +17,6 @@ public class GameInput : MonoBehaviour
     public Vector2 GetMovementVector(){
         Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
 
-        /*if(Input.GetAxis("Vertical") > 0f){
-            inputVector.z = +1;
-        }
-        if(Input.GetAxis("Vertical") < 0f){
-            inputVector.z = -1;
-        }
-        if(Input.GetAxis("Horizontal") > 0f){
-            inputVector.x = +1;
-        }
-        if(Input.GetAxis("Horizontal") < 0f){
-            inputVector.x = -1;
-        }*/
         if(playerInputActions.Player.Run.IsPressed()){
             if(player.getDancing()){
                 player.setDancing(false);
