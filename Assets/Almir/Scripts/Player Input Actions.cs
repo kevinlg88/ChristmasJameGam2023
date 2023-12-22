@@ -53,6 +53,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HoldItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9608b70-33d4-4cd9-b027-9e02f88e0fb9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Dances"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f32654e4-444e-444f-8d02-b300fc3b0dae"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Dances = m_Player.FindAction("Dances", throwIfNotFound: true);
+        m_Player_HoldItem = m_Player.FindAction("HoldItem", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Dances;
+    private readonly InputAction m_Player_HoldItem;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Dances => m_Wrapper.m_Player_Dances;
+        public InputAction @HoldItem => m_Wrapper.m_Player_HoldItem;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dances.started += instance.OnDances;
             @Dances.performed += instance.OnDances;
             @Dances.canceled += instance.OnDances;
+            @HoldItem.started += instance.OnHoldItem;
+            @HoldItem.performed += instance.OnHoldItem;
+            @HoldItem.canceled += instance.OnHoldItem;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +271,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Dances.started -= instance.OnDances;
             @Dances.performed -= instance.OnDances;
             @Dances.canceled -= instance.OnDances;
+            @HoldItem.started -= instance.OnHoldItem;
+            @HoldItem.performed -= instance.OnHoldItem;
+            @HoldItem.canceled -= instance.OnHoldItem;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +296,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnDances(InputAction.CallbackContext context);
+        void OnHoldItem(InputAction.CallbackContext context);
     }
 }

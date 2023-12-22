@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1cb891b9a49358143b4f4d6a3f4244a9
+guid: bc2602eca8ea3994cbc3b080b8b393d9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "Carv\xE3o"
-    second: {fileID: 2100000, guid: e50f5ac7d0f6cdb4883de03fdf5eec38, type: 2}
+      name: Default_Material
+    second: {fileID: 2100000, guid: 22faf48d06e5df245bcc3c4470d7d3b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Presente vermelho
+    second: {fileID: 2100000, guid: 7073ff69304295840ac62bf82f39b3ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Presente vermelho.001
+    second: {fileID: 2100000, guid: fc3fdbb14d093f54e9bd8e65e134d52e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fita.001
+    second: {fileID: 2100000, guid: 62be51f0f65a97949a3ea9016eeb103f, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: depositphotos_168400250-stock-photo-black-cracked-seamless-texture
-    second: {fileID: 2800000, guid: 74e049ebde7f118418b6f30ed06e60c3, type: 3}
+      name: 1907873-natal-bege-sem-costura-textura-com-chapeu-de-papai-noel-natal-arvore-ramos-doce-cana-e-floco-de-neve-vetor
+    second: {fileID: 2800000, guid: f3fe708ddc48c344da47271b7bda766b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
