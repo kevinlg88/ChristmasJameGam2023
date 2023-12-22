@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -21,7 +22,15 @@ public class TaskInteractable : MonoBehaviour, IInteractable
     public bool canCraft = true;
     public bool isCrafting = false;
 
-    List<GameObject> itemsInside = new List<GameObject>();
+    List<GameObject> itemsInside;
+    public GameObject InputItem_Property
+    {
+        set
+        {
+            if(VerifyItemList(value))
+                itemsInside.Add(value);
+        }
+    }
     GameObject player;
 
 
@@ -45,8 +54,7 @@ public class TaskInteractable : MonoBehaviour, IInteractable
         if(canInteract && !canTakeItem && !isCrafting)
         {
             Debug.Log("Interagiu");
-            PutItem();
-            WaitTime();
+            WaitTimeAsync();
         }
         if(canTakeItem)
         {
@@ -64,23 +72,23 @@ public class TaskInteractable : MonoBehaviour, IInteractable
         return itemsInside;
     }
 
-    void PutItem()
+    bool VerifyItemList(GameObject item)
     {
-        //Get Item from the player hand
-        //add item in list itemsInside
+        //if item type == inputType
+        if(CheckRecipe()){}
+        return false;
     }
 
-    void VerifyItemList()
+    bool CheckRecipe()
     {
-
+        return false;
     }
 
-    UniTask WaitTime()
+    async UniTask WaitTimeAsync()
     {
         isCrafting = true;
-        UniTask.Delay(waitTime);
+        await UniTask.Delay(waitTime);
         OutputItem();
-        return UniTask.CompletedTask;
     }
 
     void OutputItem()
